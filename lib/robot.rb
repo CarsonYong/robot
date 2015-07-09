@@ -9,7 +9,7 @@ class Robot
     @position = [0,0]
     @items = []
     @capacity = 250
-    @health = 100
+    @health = 0
     #@equipped_weapon = nil
     #@attack = 5
   end
@@ -73,6 +73,15 @@ class Robot
     end
   end
 
+  def heal!(amount)
+    if @health <= 0
+    raise "rgreg"
+  else heal(amount)
+    end
+  end
+
+
+
   def attack(enemy)
     if @equipped_weapon == nil
        enemy.wound(5)
@@ -89,4 +98,16 @@ class Robot
   #  @equipped_weapon = weapon
   #end
 
+
+
 end
+
+
+@robot = Robot.new
+@robot.heal!(200)
+
+puts @robot.health
+
+
+
+
