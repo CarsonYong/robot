@@ -75,7 +75,7 @@ class Robot
 
   def heal!(amount)
     if @health <= 0
-    raise "rgreg"
+    raise "You're dead!"
   else heal(amount)
     end
   end
@@ -87,8 +87,16 @@ class Robot
        enemy.wound(5)
      else
     @equipped_weapon.hit(enemy)
-  end
+    end
     #.wound(@equipped_weapon.hit) 
+  end
+
+  def attack!(enemy)
+    if enemy.class != Robot 
+      raise "Why are you not attacking a robot?"
+    else
+      #@equipped_weapon.hit(enemy)
+    end
   end
 
 #def equipped_weapon
@@ -104,9 +112,11 @@ end
 
 
 @robot = Robot.new
-@robot.heal!(200)
+@item = Item.new("ergre",123)
+@robot.attack!(@item)
 
-puts @robot.health
+
+#puts @robot.health
 
 
 
